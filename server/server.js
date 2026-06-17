@@ -9,8 +9,20 @@ const cartRoutes    = require('./routes/cartRoutes');
 const adminRoutes   = require('./routes/adminRoutes');   
 const orderRoutes   = require('./routes/orderRoutes');   
 const app = express(); 
-app.use(cors());            
-app.use(express.json());    
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://brooklyn-bakery.vercel.app'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true
+}));app.use(express.json());    
 app.use('/api/auth',           authRoutes);    
 app.use('/api/products',       productRoutes); 
 app.use('/api/cart',           cartRoutes);    
