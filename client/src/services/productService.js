@@ -1,0 +1,10 @@
+﻿import { apiGet, apiPost, apiPut, apiDelete, apiPatch } from './apiClient';
+export const getProducts = () => apiGet('/api/products');
+export const getCart         = ()                     => apiGet('/api/cart');
+export const addToCart       = (productId, quantity)  => apiPost('/api/cart', { productId, quantity });
+export const mergeCart       = (items)                => apiPost('/api/cart/merge', { items });
+export const removeFromCart  = (cartItemId)           => apiDelete(`/api/cart/${cartItemId}`);
+export const updateQuantity  = (cartItemId, quantity) => apiPatch(`/api/cart/${cartItemId}`, { quantity });
+export const createProduct  = (data)              => apiPost('/api/admin/products', data);
+export const updateProduct  = (productId, data)   => apiPut(`/api/admin/products/${productId}`, data);
+export const deleteProduct  = (productId)         => apiDelete(`/api/admin/products/${productId}`);

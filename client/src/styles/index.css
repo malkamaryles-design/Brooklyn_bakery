@@ -1,0 +1,25 @@
+/* ── Global reset ──── */
+
+html {
+  overflow-x: hidden !important;
+}
+
+:root {
+  font: 16px/1.5 'Heebo', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden !important;
+  width: 100vw;
+  max-width: 100%;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
